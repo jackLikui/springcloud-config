@@ -1,0 +1,20 @@
+spring:
+  rabbitmq:
+    host: 47.105.164.117
+    port: 5672
+    username: admin
+    password: 123456
+  cloud:
+    bus:
+      enabled: true
+      trace:
+        enabled: true
+management:
+#  endpoints:
+#    jmx:
+#      exposure:
+#        include: bus-refresh
+  endpoints:                  #SpringCloud 2.0.0版本以后暴露接口方式
+    web:
+      exposure:
+        include: "*"

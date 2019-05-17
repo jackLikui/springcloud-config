@@ -1,0 +1,34 @@
+server:
+  port: 8888
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8889/eureka/
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/jackLikui/springcloudconfig/
+          searchPaths: lik
+      label: master
+      bus:
+        enabled: true
+        trace:
+          enabled: true
+  application:
+    name: config-server
+  rabbitmq:
+    host: 47.105.164.117
+    port: 5672
+    username: admin
+    password: 123456
+management:
+  #  endpoints:
+  #    jmx:
+  #      exposure:
+  #        include: bus-refresh
+  endpoints:                  #SpringCloud 2.0.0版本以后暴露接口方式
+    web:
+      exposure:
+        include: "*"
